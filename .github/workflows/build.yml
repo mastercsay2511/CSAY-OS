@@ -22,18 +22,16 @@ jobs:
       packages: write
       id-token: write
     strategy:
-      fail-fast: false # stop GH from cancelling all matrix builds if one fails
+      fail-fast: false
       matrix:
         recipe:
-          # !! Add your recipes here
           - recipe.yml
     steps:
-      # the build is fully handled by the reusable github action
       - name: Build Custom Image
         uses: blue-build/github-action@v1.11
         with:
           recipe: ${{ matrix.recipe }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
-          # enabled by default, disable if your image is small and you want faster builds
+          build_opts: --no-sign
           maximize_build_space: true
