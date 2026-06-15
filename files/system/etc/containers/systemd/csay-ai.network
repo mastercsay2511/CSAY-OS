@@ -1,0 +1,5 @@
+[Unit]
+Description=CSAY AI internal network
+
+[Network]
+NetworkName=csay-ai
