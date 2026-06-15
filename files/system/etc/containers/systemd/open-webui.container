@@ -1,0 +1,19 @@
+[Unit]
+Description=Open WebUI chat interface
+After=ollama.service
+Requires=ollama.service
+
+[Container]
+ContainerName=open-webui
+Image=ghcr.io/open-webui/open-webui:main
+Network=csay-ai.network
+Volume=open-webui-data:/app/backend/data
+PublishPort=3000:8080
+Environment=OLLAMA_BASE_URL=http://ollama:11434
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=multi-user.target
