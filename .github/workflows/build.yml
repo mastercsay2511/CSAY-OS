@@ -7,7 +7,6 @@ on:
   push:
     paths-ignore: # don't rebuild if only documentation has changed
       - "**.md"
-
   pull_request:
   workflow_dispatch: # allow manually triggering builds
 concurrency:
@@ -34,9 +33,7 @@ jobs:
         uses: blue-build/github-action@v1.11
         with:
           recipe: ${{ matrix.recipe }}
-          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
-
           # enabled by default, disable if your image is small and you want faster builds
           maximize_build_space: true
