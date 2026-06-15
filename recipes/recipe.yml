@@ -18,5 +18,3 @@ modules:
           - org.keepassxc.KeePassXC
           - org.gimp.GIMP
           - com.github.tchx84.Flatseal
-  - type: signing
- 
