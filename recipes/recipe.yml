@@ -26,3 +26,7 @@ modules:
     system:
       enabled:
         - tailscaled.service
+  - type: os-release
+    properties:
+      NAME: CSAY OS
+      PRETTY_NAME: CSAY OS
