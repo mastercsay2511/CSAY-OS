@@ -9,11 +9,10 @@ modules:
       - source: system
         destination: /
 
-  # --- Add the VS Code RPM Repository & Package ---
+  # --- Fetch and Install VS Code directly via URL ---
   - type: rpm-ostree
-    repos:
-      - https://packages.microsoft.com/yumrepos/vscode/vscode.repo
     install:
+      - https://packages.microsoft.com/yumrepos/vscode/code-1.99.0-1740000000.el8.x86_64.rpm # Just an example url, see below
       - code
 
   - type: default-flatpaks
